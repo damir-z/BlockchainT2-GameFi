@@ -1,0 +1,63 @@
+{
+  "network": "base-sepolia",
+  "chainId": 84532,
+  "deployer": "0x0000000000000000000000000000000000000000",
+  "contracts": {
+    "GameToken": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "Gold": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "Crystal": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "GameItems1155": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "GameParametersProxy": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "CraftingManager": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "LootDrop": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "RentalVault": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "AMMPoolFactory": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "AMMPool": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "GameVault4626": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "PriceFeedAdapter": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "Timelock": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    },
+    "GameGovernor": {
+      "address": "0x...",
+      "verifiedUrl": "https://sepolia.basescan.org/address/0x...#code"
+    }
+  }
+}

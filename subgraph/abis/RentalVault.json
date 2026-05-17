@@ -1,0 +1,73 @@
+[
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "Listed",
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "listingId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "name": "lender",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "tokenId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "priceWei",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "period",
+        "type": "uint64"
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "Rented",
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "listingId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "name": "renter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "expiresAt",
+        "type": "uint64"
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "RentalFinished",
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "listingId",
+        "type": "uint256"
+      }
+    ]
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "ItemCrafted",
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "player",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "recipeId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "name": "outputItemId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      }
+    ]
+  }
+]

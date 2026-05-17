@@ -1,0 +1,115 @@
+[
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "ProposalCreated",
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "proposalId",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "name": "proposer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "targets",
+        "type": "address[]"
+      },
+      {
+        "indexed": false,
+        "name": "values",
+        "type": "uint256[]"
+      },
+      {
+        "indexed": false,
+        "name": "signatures",
+        "type": "string[]"
+      },
+      {
+        "indexed": false,
+        "name": "calldatas",
+        "type": "bytes[]"
+      },
+      {
+        "indexed": false,
+        "name": "startBlock",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "endBlock",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "description",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "VoteCast",
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "voter",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "proposalId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "support",
+        "type": "uint8"
+      },
+      {
+        "indexed": false,
+        "name": "weight",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "reason",
+        "type": "string"
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "ProposalQueued",
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "proposalId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "eta",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "ProposalExecuted",
+    "inputs": [
+      {
+        "indexed": false,
+        "name": "proposalId",
+        "type": "uint256"
+      }
+    ]
+  }
+]

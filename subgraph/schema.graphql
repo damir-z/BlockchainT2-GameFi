@@ -1,0 +1,83 @@
+type Player @entity(immutable: false) {
+  id: Bytes!
+  crafts: [Craft!]! @derivedFrom(field: "player")
+  rentals: [Rental!]! @derivedFrom(field: "renter")
+}
+
+type ItemBalance @entity(immutable: false) {
+  id: ID!
+  player: Player!
+  itemId: BigInt!
+  amount: BigInt!
+}
+
+type Craft @entity(immutable: false) {
+  id: Bytes!
+  player: Player!
+  recipeId: BigInt!
+  outputItemId: BigInt!
+  amount: BigInt!
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}
+
+type Pool @entity(immutable: false) {
+  id: Bytes!
+  swaps: [Swap!]! @derivedFrom(field: "pool")
+  liquidityEvents: [LiquidityEvent!]! @derivedFrom(field: "pool")
+  swapCount: BigInt!
+}
+
+type Swap @entity(immutable: false) {
+  id: Bytes!
+  pool: Pool!
+  trader: Bytes!
+  tokenIn: Bytes!
+  amountIn: BigInt!
+  amountOut: BigInt!
+  to: Bytes!
+  blockNumber: BigInt!
+  transactionHash: Bytes!
+}
+
+type LiquidityEvent @entity(immutable: false) {
+  id: Bytes!
+  pool: Pool!
+  provider: Bytes!
+  amount0: BigInt!
+  amount1: BigInt!
+  liquidity: BigInt!
+  blockNumber: BigInt!
+}
+
+type Rental @entity(immutable: false) {
+  id: ID!
+  lender: Player!
+  renter: Player
+  tokenId: BigInt!
+  amount: BigInt!
+  priceWei: BigInt!
+  state: String!
+  expiresAt: BigInt
+  blockNumber: BigInt!
+}
+
+type Proposal @entity(immutable: false) {
+  id: ID!
+  proposer: Bytes!
+  description: String!
+  state: String!
+  startBlock: BigInt!
+  endBlock: BigInt!
+  createdAt: BigInt!
+  votes: [Vote!]! @derivedFrom(field: "proposal")
+}
+
+type Vote @entity(immutable: false) {
+  id: Bytes!
+  proposal: Proposal!
+  voter: Bytes!
+  support: Int!
+  weight: BigInt!
+  reason: String
+}

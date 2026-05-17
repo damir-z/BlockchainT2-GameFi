@@ -1,0 +1,32 @@
+# Criteria Matrix
+
+This file maps every final-project requirement to concrete files in this repository.
+
+| Course criterion                           | Evidence in repository                                                                       | Notes                                                                                |
+| ------------------------------------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Option B - GameFi Economy                  | `GameItems1155.sol`, `CraftingManager.sol`, `LootDrop.sol`, `RentalVault.sol`, `AMMPool.sol` | ERC-1155 items, crafting, resource AMM, NFT rentals, VRF loot drops                  |
+| Smart contract codebase                    | `contracts/`                                                                                 | Foundry project                                                                      |
+| Unit, fuzz, invariant, fork tests          | `test/`                                                                                      | 88 `test*` functions plus 6 `invariant_*` functions                                  |
+| Frontend dApp                              | `frontend/`                                                                                  | React + Wagmi + Viem                                                                 |
+| The Graph subgraph                         | `subgraph/`                                                                                  | 9 entities, mappings, 5 documented queries                                           |
+| Deployment scripts                         | `script/Deploy.s.sol`, `script/VerifyPostDeploy.s.sol`                                       | L2 deploy and post-deploy verification                                               |
+| Architecture document                      | `docs/ARCHITECTURE.md`, `docs/ARCHITECTURE.pdf`                                              | Includes C4, components, sequences, storage, trust assumptions, ADRs                 |
+| Security audit report                      | `docs/SECURITY_AUDIT.md`, `docs/SECURITY_AUDIT.pdf`                                          | Includes methodology, findings, centralization, governance, oracle, Slither appendix |
+| Gas report                                 | `docs/GAS_REPORT.md`, `docs/L1_L2_GAS_COMPARISON.md`                                         | Yul vs Solidity and L1/L2 operation table                                            |
+| UUPS proxy                                 | `GameParametersV1.sol`, `GameParametersV2.sol`, `testUupsUpgradeToV2`                        | V1 to V2 upgrade path                                                                |
+| Factory CREATE and CREATE2                 | `AMMPoolFactory.sol`                                                                         | Both deployment paths tested                                                         |
+| Inline Yul                                 | `AMMMath.sol`                                                                                | `quoteOutYul` benchmarked against `quoteOutSolidity`                                 |
+| ERC20Votes + ERC20Permit                   | `GameToken.sol`                                                                              | DAO voting token                                                                     |
+| ERC-1155                                   | `GameItems1155.sol`                                                                          | Items and loot boxes                                                                 |
+| ERC-4626 vault                             | `GameVault4626.sol`                                                                          | Treasury vault and rounding tests                                                    |
+| AMM x\*y=k with 0.3% fee                   | `AMMPool.sol`                                                                                | Uses 997/1000 fee factor                                                             |
+| Chainlink price feed stale check           | `PriceFeedAdapter.sol`, `MockV3Aggregator.sol`                                               | Reverts on stale, invalid, incomplete prices                                         |
+| Chainlink VRF loot drops                   | `LootDrop.sol`, `MockVRFCoordinatorV2.sol`                                                   | No block timestamp randomness                                                        |
+| Governor + Timelock                        | `GameGovernor.sol`, tests, deploy script                                                     | 2-day timelock, 1-day delay, 1-week period, 4% quorum, 1% threshold                  |
+| L2 deployment and verification             | `script/Deploy.s.sol`, README instructions                                                   | Requires project RPC and keys at final deployment time                               |
+| Reentrancy and access-control case studies | `test/helpers/VulnerabilityTargets.sol`, `test/VulnerabilityCaseStudies.t.sol`               | Before/after tests included                                                          |
+| No tx.origin                               | Grep contracts                                                                               | Not used                                                                             |
+| No transfer/send                           | `RentalVault.sol` uses `call{value:}`                                                        | Return values checked                                                                |
+| SafeERC20                                  | `AMMPool.sol`, `GameVault4626.sol`                                                           | All ERC-20 transfer flows use SafeERC20                                              |
+| CI on push/PR                              | `.github/workflows/ci.yml`                                                                   | Build, test, coverage, Slither, fmt, lint, frontend, subgraph                        |
+| Commit convention                          | `docs/TEAM_OWNERSHIP.md` and README                                                          | Conventional Commit examples included                                                |

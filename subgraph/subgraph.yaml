@@ -1,0 +1,102 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: CraftingManager
+    network: base-sepolia
+    source:
+      address: "0x0000000000000000000000000000000000000000"
+      abi: CraftingManager
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Player
+        - ItemBalance
+        - Craft
+      abis:
+        - name: CraftingManager
+          file: ./abis/CraftingManager.json
+      eventHandlers:
+        - event: ItemCrafted(indexed address,indexed uint256,indexed uint256,uint256)
+          handler: handleItemCrafted
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: AMMPool
+    network: base-sepolia
+    source:
+      address: "0x0000000000000000000000000000000000000000"
+      abi: AMMPool
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Pool
+        - Swap
+        - LiquidityEvent
+      abis:
+        - name: AMMPool
+          file: ./abis/AMMPool.json
+      eventHandlers:
+        - event: Swap(indexed address,indexed address,uint256,uint256,indexed address)
+          handler: handleSwap
+        - event: LiquidityAdded(indexed address,indexed address,uint256,uint256,uint256)
+          handler: handleLiquidityAdded
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: RentalVault
+    network: base-sepolia
+    source:
+      address: "0x0000000000000000000000000000000000000000"
+      abi: RentalVault
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Player
+        - Rental
+      abis:
+        - name: RentalVault
+          file: ./abis/RentalVault.json
+      eventHandlers:
+        - event: Listed(indexed uint256,indexed address,indexed uint256,uint256,uint256,uint64)
+          handler: handleListed
+        - event: Rented(indexed uint256,indexed address,uint64)
+          handler: handleRented
+        - event: RentalFinished(indexed uint256)
+          handler: handleRentalFinished
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: GameGovernor
+    network: base-sepolia
+    source:
+      address: "0x0000000000000000000000000000000000000000"
+      abi: GameGovernor
+      startBlock: 0
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Proposal
+        - Vote
+      abis:
+        - name: GameGovernor
+          file: ./abis/GameGovernor.json
+      eventHandlers:
+        - event: ProposalCreated(uint256,indexed address,address[],uint256[],string[],bytes[],uint256,uint256,string)
+          handler: handleProposalCreated
+        - event: VoteCast(indexed address,uint256,uint8,uint256,string)
+          handler: handleVoteCast
+        - event: ProposalQueued(uint256,uint256)
+          handler: handleProposalQueued
+        - event: ProposalExecuted(uint256)
+          handler: handleProposalExecuted
+      file: ./src/mapping.ts

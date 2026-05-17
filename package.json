@@ -1,0 +1,14 @@
+{
+  "name": "gamefi-economy-capstone",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "lint:sol": "solhint 'contracts/**/*.sol' 'script/**/*.sol' 'test/**/*.sol'",
+    "format:check": "prettier --check '**/*.{md,json,yml,yaml,ts,tsx,css}'",
+    "format": "prettier --write '**/*.{md,json,yml,yaml,ts,tsx,css}'"
+  },
+  "devDependencies": {
+    "prettier": "latest",
+    "solhint": "latest"
+  }
+}

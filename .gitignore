@@ -1,0 +1,12 @@
+.env
+lib/
+out/
+cache/
+broadcast/
+node_modules/
+coverage/
+lcov.info
+.DS_Store
+frontend/dist/
+subgraph/generated/
+subgraph/build/

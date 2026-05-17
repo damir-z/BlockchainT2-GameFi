@@ -1,0 +1,66 @@
+[
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "LiquidityAdded",
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "provider",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "amount0",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount1",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "liquidity",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "anonymous": false,
+    "type": "event",
+    "name": "Swap",
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "trader",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "tokenIn",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "amountIn",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amountOut",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "name": "to",
+        "type": "address"
+      }
+    ]
+  }
+]
